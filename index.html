@@ -24,34 +24,47 @@
   <!--[if lt IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-  <div class="container">
+  <!-- <div class="container">
     <p>Look at the following examples:</p>
     <div class="image-set">
-      <div>
-        <div style="font-size: small;">I m an image</div>
-        <a data-gallery="manual" data-title="Figure 2.1" data-group="a" href="imgs/140803_Cam2_00626.jpg">
+      <a data-gallery="manual" data-title="Figure 2.1" data-group="a" href="imgs/140803_Cam2_00626.jpg" data-index="0">
+        <img src="imgs/140803_Cam2_00626.jpg" alt="" width="20%" height="10%">
+      </a>
+      <a data-gallery="manual" data-title="Mi Fuego by albert dros" data-group="a" href="imgs/140803_Cam2_00778.jpg"
+        data-index="1">
+        <img src="imgs/140803_Cam2_00778.jpg" alt="" width="20%" height="10%">
+      </a>
+      <a data-gallery="manual" data-title="Winter Fairytale by Achim Thomae" data-group="a"
+        href="imgs/140803_Cam2_00782.jpg" data-index="0">
+        <img src="imgs/140803_Cam2_00782.jpg" alt="" width="20%" height="10%">
+      </a>
+    </div> -->
+
+  <div class="container">
+    <p>List of figures used in thesis:</p>
+    <div class="image-set">
+      <div class="image-text-pair">
+        <a data-gallery="manual" data-title="Figure 2.1" data-group="a" href="imgs/140803_Cam2_00626.jpg" data-index="0">
           <img src="imgs/140803_Cam2_00626.jpg" alt="" width="20%" height="10%">
         </a>
+        <p class="image-description">This is Figure 2.1. It shows an example of...</p>
       </div>
-
-      <div>
-        <div style="font-size: small;">I m 2nd image</div>
-        <a data-gallery="manual" data-title="Figure 2.1" data-group="a" href="imgs/140803_Cam2_00778.jpg">
+      <div class="image-text-pair">
+        <a data-gallery="manual" data-title="Mi Fuego by albert dros" data-group="a" href="imgs/140803_Cam2_00778.jpg" data-index="1">
           <img src="imgs/140803_Cam2_00778.jpg" alt="" width="20%" height="10%">
         </a>
+        <p class="image-description">Mi Fuego by Albert Dros. This image depicts...</p>
       </div>
-
-      <div>
-        <div style="font-size: small;">I m 3rd image</div>
-        <a data-gallery="manual" data-title="Figure 2.1" data-group="a" href="imgs/140803_Cam2_00782.jpg">
+      <div class="image-text-pair">
+        <a data-gallery="manual" data-title="Winter Fairytale by Achim Thomae" data-group="a"
+          href="imgs/140803_Cam2_00782.jpg" data-index="2">
           <img src="imgs/140803_Cam2_00782.jpg" alt="" width="20%" height="10%">
         </a>
+        <p class="image-description">Winter Fairytale by Achim Thomae. This beautiful scene shows...</p>
       </div>
     </div>
-
-    </pre>
-    </pre>
   </div>
+
   </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
@@ -79,15 +92,14 @@
 
     // initialize manually with a list of links
     $('[data-gallery=manual]').click(function (e) {
-
       e.preventDefault();
 
       var items = [],
         options = {
-          index: $(this).index(),
+          index: parseInt($(this).attr('data-index'), 10), // Use the data-index attribute
         };
 
-      $('[data-gallery=manual]').each(function () {
+      $('[data-gallery=manual]').each(function (index) {
         items.push({
           src: $(this).attr('href'),
           title: $(this).attr('data-title')
@@ -95,7 +107,6 @@
       });
 
       new PhotoViewer(items, options);
-
     });
 
   </script>

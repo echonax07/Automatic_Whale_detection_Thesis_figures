@@ -54,7 +54,7 @@ h3 small code {
 }
 
 .image-set {
-  font-size: 0;
+  font-size: small;
   margin-left: -5px;
   margin-right: -5px;
 }
