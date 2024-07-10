@@ -9,6 +9,3 @@ pages:
   artifacts:
     paths:
       - public
-job:
-  tags:
-    - html
