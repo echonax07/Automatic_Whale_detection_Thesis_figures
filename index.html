@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="photoviewer,jquery plugin,lightbox,viewer,Windows 照片查看器,图片查看器,模态窗,拖拽,缩放,旋转,平移,最大化">
+  <title>PhotoViewer</title>
+  <!-- Bootstrap -->
+  <link href="css/photoviewer.css" rel="stylesheet">
+  <link href="css/snack.css" rel="stylesheet">
+  <link href="css/snack-helper.css" rel="stylesheet">
+  <link href="css/docs.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!--[if lt IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="container">
+    <p>Look at the following examples:</p>
+    <div class="image-set">
+      <div>
+        <div style="font-size: small;">I m an image</div>
+        <a data-gallery="manual" data-title="Figure 2.1" data-group="a" href="imgs/140803_Cam2_00626.jpg">
+          <img src="imgs/140803_Cam2_00626.jpg" alt="" width="20%" height="10%">
+        </a>
+      </div>
+
+      <div>
+        <div style="font-size: small;">I m 2nd image</div>
+        <a data-gallery="manual" data-title="Figure 2.1" data-group="a" href="imgs/140803_Cam2_00778.jpg">
+          <img src="imgs/140803_Cam2_00778.jpg" alt="" width="20%" height="10%">
+        </a>
+      </div>
+
+      <div>
+        <div style="font-size: small;">I m 3rd image</div>
+        <a data-gallery="manual" data-title="Figure 2.1" data-group="a" href="imgs/140803_Cam2_00782.jpg">
+          <img src="imgs/140803_Cam2_00782.jpg" alt="" width="20%" height="10%">
+        </a>
+      </div>
+    </div>
+
+    </pre>
+    </pre>
+  </div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/prettify/r298/prettify.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/photoviewer.js"></script>
+  <script>
+    window.prettyPrint && prettyPrint();
+
+    // initialize with an array of objects
+    $('button').click(function () {
+
+      new PhotoViewer([{
+        src: 'https://c1.staticflickr.com/3/2136/32571842110_faadf0b1a7_k.jpg',
+        title: 'Glendalough Upper Lake by <a href="https://www.flickr.com/photos/desomnis/">Angelika Hörschläger</a>'
+      }, {
+        src: 'https://c1.staticflickr.com/5/4364/35774111373_187963664b_h.jpg',
+        title: 'A foggy summer day by <a href="https://www.flickr.com/photos/desomnis/">Angelika Hörschläger</a>'
+      }, {
+        src: 'https://c1.staticflickr.com/8/7737/28617607314_170a8e6752_k.jpg',
+        title: 'My Silver Lining (explore) by <a href="https://www.flickr.com/photos/desomnis/">Angelika Hörschläger</a>'
+      }]);
+
+    });
+
+    // initialize manually with a list of links
+    $('[data-gallery=manual]').click(function (e) {
+
+      e.preventDefault();
+
+      var items = [],
+        options = {
+          index: $(this).index(),
+        };
+
+      $('[data-gallery=manual]').each(function () {
+        items.push({
+          src: $(this).attr('href'),
+          title: $(this).attr('data-title')
+        });
+      });
+
+      new PhotoViewer(items, options);
+
+    });
+
+  </script>
+</body>
+
+</html>
